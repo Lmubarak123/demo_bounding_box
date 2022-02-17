@@ -1,0 +1,36 @@
+{% extends 'base2.html' %}
+<html>
+{%block body%}
+<!--Welcome{{request.user}}-->
+<!--<h3><a href="/login">Logout</a> -->
+    <head>
+        <title>Uploading Files</title>
+        <style>
+            .upload {
+                padding:18px;
+                height: 90px;
+                background: #aaf;
+               
+              }
+            </style>
+        </head>
+        
+        <body>
+        
+        <div class="upload">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="myfile">Select a file:</label>
+                <input type="file" name="document">    
+                <button type="submit" class="btn btn-success">Upload file</button>
+            </from> 
+        
+        
+            {% if url %}
+            <p>Uploaded file:<a href="{{url}}">{{url}}</a></p>
+            {% endif %}
+        </div>
+        <h4> <a href="/index">click to open exiting files</a></h4>
+        </body>
+{%endblock body%}
+</html>
